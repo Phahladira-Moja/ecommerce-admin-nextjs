@@ -23,7 +23,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { AlertModal } from "@/components/modals/alertModal";
-import { ApiAlert } from "@/components/ui/ApiAlert";
 import ImageUpload from "@/components/ui/ImageUpload";
 
 const formSchema = z.object({
@@ -88,7 +87,7 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
       );
 
       router.refresh();
-      router.push("/");
+      router.push(`/${params.storeId}/billboards`);
       toast.success("Billboard deleted.");
     } catch (error) {
       toast.error(
@@ -172,8 +171,6 @@ const BillboardForm: React.FC<BillboardFormProps> = ({ initialData }) => {
           </Button>
         </form>
       </Form>
-
-      <Separator />
     </>
   );
 };

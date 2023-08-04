@@ -1,10 +1,11 @@
 import React from "react";
 import { UserButton, auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
-
-import MainNav from "./MainNav";
-import StoreSwitcher from "./StoreSwitcher";
 import prismadb from "@/lib/prismadb";
+
+import MainNav from "@/components/MainNav";
+import StoreSwitcher from "@/components/StoreSwitcher";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Navbar = async () => {
   const { userId } = auth();
@@ -25,6 +26,7 @@ const Navbar = async () => {
 
         {/* the ml-auto will shift it all the way to the right  */}
         <div className="ml-auto flex items-center space-x-4">
+          <ThemeToggle />
           <UserButton afterSignOutUrl="/" />
         </div>
       </div>
